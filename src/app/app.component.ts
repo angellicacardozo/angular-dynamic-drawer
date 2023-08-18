@@ -1,19 +1,6 @@
-import {
-  CdkPortalOutlet,
-  ComponentPortal,
-  PortalOutlet,
-  TemplatePortal,
-} from '@angular/cdk/portal';
-import {
-  Component,
-  ContentChild,
-  OnInit,
-  TemplateRef,
-  ViewChild,
-  ViewContainerRef,
-} from '@angular/core';
+import { CdkPortalOutlet, PortalOutlet } from '@angular/cdk/portal';
+import { Component, ContentChild, OnInit, ViewChild } from '@angular/core';
 import { MatDrawer } from '@angular/material/sidenav';
-import { DrawerContentDirective } from '../shared/directives/drawer-content.directive';
 import {
   DrawerFacadeService,
   DrawerCommand,
@@ -26,16 +13,11 @@ import {
 })
 export class AppComponent implements OnInit {
   @ViewChild('drawer') drawer!: MatDrawer;
-  @ContentChild(DrawerContentDirective)
-  drawerContent!: DrawerContentDirective;
   @ViewChild(CdkPortalOutlet, { static: false }) portalOutlet: PortalOutlet;
 
   title = 'my-app';
 
-  constructor(
-    private drawerFacadeService: DrawerFacadeService,
-    private viewContainerRef: ViewContainerRef
-  ) {}
+  constructor(private drawerFacadeService: DrawerFacadeService) {}
 
   ngOnInit() {
     this.drawerFacadeService.stateChanges.subscribe({
