@@ -1,0 +1,18 @@
+<mat-chip (click)="onClick()" *ngIf="data$ | async; else loading">
+  <div class="chip-action-label">
+    <ng-container [ngTemplateOutlet]="chipContent"></ng-container>
+  </div>
+</mat-chip>
+
+<ng-template #loading>
+  <mat-chip [disabled]="true">
+    <div class="chip-action-label">
+      <mat-spinner diameter="18"></mat-spinner>
+      <ng-container [ngTemplateOutlet]="chipContent"></ng-container>
+    </div>
+  </mat-chip>
+</ng-template>
+
+<ng-template #chipContent>
+  <ng-content></ng-content>
+</ng-template>

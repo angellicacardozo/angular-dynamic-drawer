@@ -1,0 +1,18 @@
+.drawer-wrapper {
+  padding: 16px;
+}
+
+.main-actions {
+  display: flex;
+  gap: 8px;
+  margin-left: 16px;
+}
+
+.toolbar {
+  z-index: 2;
+}
+
+main {
+  overflow-y: scroll;
+  height: 100vh;
+}

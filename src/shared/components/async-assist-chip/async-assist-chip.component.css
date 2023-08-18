@@ -1,0 +1,6 @@
+.chip-action-label {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  cursor: pointer;
+}

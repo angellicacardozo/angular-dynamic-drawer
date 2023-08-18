@@ -1,0 +1,22 @@
+<ng-container *ngIf="posts$ | async as posts; else loading">
+  <div class="flex flex-col gap-2">
+    <mat-card *ngFor="let post of posts; trackBy: trackByPosts">
+      <mat-card-header>
+        <mat-card-title>{{ post.title }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <app-async-assist-chip [source]="dispatchOpenAuthorDetail(post.userId)">
+          <span>Author</span>
+        </app-async-assist-chip>
+      </mat-card-content>
+      <mat-card-actions>
+        <button (click)="dispatchOpenPostDetail(post)" mat-button>
+          DETAILS
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</ng-container>
+<ng-template #loading>
+  <mat-progress-spinner></mat-progress-spinner>
+</ng-template>
